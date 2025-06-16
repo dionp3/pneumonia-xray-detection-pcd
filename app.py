@@ -116,7 +116,7 @@ if uploaded_file is not None:
 
     # Tampilkan citra asli
     st.subheader("Citra X-ray Asli")
-    st.image(img_original, caption="Citra X-ray yang Diunggah", use_column_width=True, channels="BGR")
+    st.image(img_original, caption="Citra X-ray yang Diunggah", use_container_width=True, channels="BGR")
 
     st.markdown("---")
 
@@ -134,17 +134,17 @@ if uploaded_file is not None:
                 # Visualisasi hasil preprocessing dan transformasi
                 col1, col2, col3 = st.columns(3)
                 with col1:
-                    st.image(gray_img, caption="1. Grayscale Conversion", use_column_width=True, channels='GRAY')
+                    st.image(gray_img, caption="1. Grayscale Conversion", use_container_width=True, channels='GRAY')
                 with col2:
-                    st.image(clahe_img, caption="2. CLAHE (Contrast Enhancement)", use_column_width=True, channels='GRAY')
+                    st.image(clahe_img, caption="2. CLAHE (Contrast Enhancement)", use_container_width=True, channels='GRAY')
                 with col3:
-                    st.image(blurred_img, caption="3. Gaussian Blurring (Noise Reduction)", use_column_width=True, channels='GRAY')
+                    st.image(blurred_img, caption="3. Gaussian Blurring (Noise Reduction)", use_container_width=True, channels='GRAY')
 
                 col4, col5 = st.columns(2)
                 with col4:
-                    st.image(otsu_thresh, caption="4. Otsu's Thresholding (Segmentation)", use_column_width=True, channels='GRAY')
+                    st.image(otsu_thresh, caption="4. Otsu's Thresholding (Segmentation)", use_container_width=True, channels='GRAY')
                 with col5:
-                    st.image(final_mask, caption="5. Morphological Operations (Opening & Closing)", use_column_width=True, channels='GRAY')
+                    st.image(final_mask, caption="5. Morphological Operations (Opening & Closing)", use_container_width=True, channels='GRAY')
 
                 st.markdown("---")
 
@@ -154,7 +154,7 @@ if uploaded_file is not None:
                 original_gray_for_mask = cv2.cvtColor(img_original, cv2.COLOR_BGR2GRAY)
                 masked_img_for_glcm_display = cv2.bitwise_and(original_gray_for_mask, original_gray_for_mask, mask=final_mask)
 
-                st.image(masked_img_for_glcm_display, caption="Area Paru-paru Tersegmentasi (Digunakan untuk Ekstraksi Fitur)", use_column_width=True, channels='GRAY')
+                st.image(masked_img_for_glcm_display, caption="Area Paru-paru Tersegmentasi (Digunakan untuk Ekstraksi Fitur)", use_container_width=True, channels='GRAY')
                 st.markdown("Area berwarna putih pada gambar di atas adalah bagian yang teridentifikasi sebagai paru-paru dan digunakan untuk ekstraksi fitur tekstur.")
 
                 # Ekstraksi fitur Haralick
