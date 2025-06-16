@@ -1,3 +1,14 @@
+import streamlit as st
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+from skimage.feature import graycomatrix, graycoprops
+import joblib
+from PIL import Image
+import io
+import pandas as pd
+import seaborn as sns # Untuk visualisasi fitur
+
 # --- KONFIGURASI HALAMAN STREAMLIT ---
 # st.set_page_config() harus menjadi perintah Streamlit pertama.
 st.set_page_config(
